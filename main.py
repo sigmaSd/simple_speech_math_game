@@ -29,22 +29,23 @@ engine.setProperty('voice', voice.id)
 num1, num2, res = rand_and_say()
 
 # get audio from the microphone
-while 1:
-    r = sr.Recognizer()
-    with sr.Microphone() as source:
+
+r = sr.Recognizer()
+with sr.Microphone() as source:
+    while 1:
         print("Speak:")
         audio = r.listen(source)
 
-    try:
-        answer = r.recognize_google(audio, language='fr-FR')
-        print("You said {}, correct answer {}".format(answer, res))
-        if answer.strip() == str(res):
-            say_and_print("Bravo")
+        try:
+            answer = r.recognize_google(audio, language='fr-FR')
+            print("You said {}, correct answer {}".format(answer, res))
+            if answer.strip() == str(res):
+                say_and_print("Bravo")
 
-            num1, num2, res = rand_and_say()
+                num1, num2, res = rand_and_say()
 
-        else:
-            say_and_print("incorrect")
-    except:
-        print("Error")
-        continue
+            else:
+                say_and_print("incorrect")
+        except:
+            print("Error")
+            continue
