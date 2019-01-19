@@ -28,9 +28,6 @@ engine.setProperty('voice', voice.id)
 
 num1, num2, res = rand_and_say()
 
-engine.runAndWait()
-
-
 # get audio from the microphone
 while 1:
     r = sr.Recognizer()
