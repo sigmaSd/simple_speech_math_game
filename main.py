@@ -22,6 +22,7 @@ def rand_and_say():
     return num1, num2, res
 
 
+# Initialize engine
 engine = pyttsx3.init()
 voice = engine.getProperty('voices')[34]  # the french voice
 engine.setProperty('voice', voice.id)
@@ -29,7 +30,6 @@ engine.setProperty('voice', voice.id)
 num1, num2, res = rand_and_say()
 
 # get audio from the microphone
-
 r = sr.Recognizer()
 with sr.Microphone() as source:
     while 1:
@@ -41,7 +41,6 @@ with sr.Microphone() as source:
             print("You said {}, correct answer {}".format(answer, res))
             if answer.strip() == str(res):
                 say_and_print("Bravo")
-
                 num1, num2, res = rand_and_say()
 
             else:
